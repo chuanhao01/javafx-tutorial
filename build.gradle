@@ -4,6 +4,23 @@ plugins {
     id 'com.gradleup.shadow' version '9.5.1'
 }
 
+dependencies {
+    String javaFxVersion = '25.0.1'
+
+    implementation("org.openjfx:javafx-base:${javaFxVersion}:win")
+    implementation("org.openjfx:javafx-base:${javaFxVersion}:mac")
+    implementation("org.openjfx:javafx-base:${javaFxVersion}:linux")
+    implementation("org.openjfx:javafx-controls:${javaFxVersion}:win")
+    implementation("org.openjfx:javafx-controls:${javaFxVersion}:mac")
+    implementation("org.openjfx:javafx-controls:${javaFxVersion}:linux")
+    implementation("org.openjfx:javafx-fxml:${javaFxVersion}:win")
+    implementation("org.openjfx:javafx-fxml:${javaFxVersion}:mac")
+    implementation("org.openjfx:javafx-fxml:${javaFxVersion}:linux")
+    implementation("org.openjfx:javafx-graphics:${javaFxVersion}:win")
+    implementation("org.openjfx:javafx-graphics:${javaFxVersion}:mac")
+    implementation("org.openjfx:javafx-graphics:${javaFxVersion}:linux")
+}
+
 java {
     sourceCompatibility = JavaVersion.VERSION_25
     targetCompatibility = JavaVersion.VERSION_25
@@ -14,7 +31,7 @@ repositories {
 }
 
 application {
-    mainClass.set("Duke")
+    mainClass.set("Launcher")
 }
 
 java {
@@ -23,7 +40,10 @@ java {
     }
 }
 
+tasks.named('jar') {
+    enabled = false
+}
+
 shadowJar {
-    archiveBaseName = "javafx-tutorial-duke"
-    archiveClassifier = null
+    archiveFileName = "workspace.jar"
 }

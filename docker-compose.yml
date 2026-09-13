@@ -1,0 +1,20 @@
+services:
+  java25-javafx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: javafx-tutorial-java25-javafx
+    working_dir: /workspace
+    volumes:
+      # Attach the whole project into the container.
+      - .:/workspace
+      # Keep Gradle downloads outside the image between runs.
+      - gradle-cache:/home/developer/.gradle
+    environment:
+      GRADLE_USER_HOME: /home/developer/.gradle
+    stdin_open: true
+    tty: true
+    command: sleep infinity
+
+volumes:
+  gradle-cache:

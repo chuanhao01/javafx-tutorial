@@ -1,3 +1,7 @@
+.direnv
+.devcontainer
+.envrc
+
 # IDEA files
 /.idea/
 /out/
@@ -12,4 +16,3 @@ src/main/resources/docs/
 .DS_Store
 *.iml
 bin/
-
